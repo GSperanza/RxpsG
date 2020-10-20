@@ -1,0 +1,145 @@
+NEWS file for package RxpsG
+
+Giorgio Speranza Roberto Canteri
+
+#### RxpsG version 2.2
+
+RXPSG introduced XPSSample name as title of the graphic window
+      integrated BE/KE switch GUI
+      integrated dialog window when wide_spectra name unknown
+
+XPSFilter: moving average filter corrected
+           wavelets filter corrected
+
+XPSSurElementIdentify: bugs fixed
+
+XPSSurveyUtility modified call to XPSSurElementIdentify.
+
+XPSElemTable (piu' survey error)
+
+AugerTransitions.lib 
+
+ProcessCoreLineGui some error fixed
+
+XPSClass just comments removed
+
+XPSConstraintsGUI  the Link page completely restyled: now more easy to set links, ctrls to avoid errors
+
+XPSElementTabGUI  modified routine to get multiple cursor positions
+
+XPSZoomCurGUI   eliminated assignments in MyEnv using <<-   modified GUI with coiche of XPSSamples and corelines
+
+XPSSampleInfoGUI save edited Sample information: bug fixed
+
+XPSUtilities: in XPSFindXindex() XPSFindXindex() error was generated when void vectors passed to these routines. Now bug corrected. 
+
+XPSProcess: removed error generated when add fitcomponent pressed without any position set
+
+XPSEShiftGUI.r: fixed bug in the reset energy shift procedure.
+
+XPSOverlayGui.r: now it is possible to readjust the intensity of a given CoreLine when comparing spectra from the same XPSSample
+
+XPSPreferencesGUI.r: added option to set user defined X-photon energy to include Synchroton radiations
+
+XPSMoveCompGUI.r: modified adding selection of the XPSSample
+
+XPSSplit.r: macro revised to allow splitting files composed by an unlimited number of core-lines
+           (macro tested on an XPS-Sample composed by 64 core-lines)
+
+XPSCompare.r: new function added added to RxpsG. This function allows overlapping different core-lines
+              from different XPS-Samples. For each coreline a panel is generated to compare spectra. 
+
+XPSMoveComponents: now possible to change window dimension.
+
+XPSSplit.r: macro revised to allow splitting files composed by an unlimited number of core-lines
+           (macro tested on an XPS-Sample composed by 64 core-lines)
+
+XPSCompare.r: new function added added to RxpsG. This function allows overlapping different core-lines
+              from different XPS-Samples. For each coreline a panel is generated to compare spectra. 
+
+XPSMoveComponents: now possible to change window dimension.
+
+XPSVmsCorrGui.r: correction for analyzer energy transfer function error fixed
+
+XPSRead.VMS.r: fixed error reading vamas files without Analyzer Energy Transfer Function
+
+========================================================================================
+##### RxpsG version 0.6.0
+>> integrates the RxpsG using the sme name Rxps to avoid discrepancies between old and new analyzed data (graph settings)
+>> integrates the Rxps0.5.5 with modified XPSprocessing.R, with additional functions for analysis, plot, annotate
+
+
+##### RxpsG version 0.5.5
+>> Add : XPSoverlayPlot now has the capability to switch from line to point and many combination of them.
+>> Change: move the code 'plot' with mode="ov" into the XPSoverlayPlot function. Now 'plot' for XPSSample
+	does only plot as panel.
+>> New : XPSoverlayPlot function.
+
+
+
+##### RxpsG version 0.5
+>> Fix: plot for XPSSample did not overlay with vamas type.
+>> Add: normalize intensity in plot for XPSSample 
+
+##### RxpsG version 0.4.2
+>> Add: quantification for Vamas files
+>> Add: Access to reference file for Kratos instrument
+>> Change: rewrite of all function to access the reference file for the two instruments (scienta, kratos)
+>> Fixed : 'plot' for XPSCoreLine did not set the xlimit wider than range of x
+>> Change: XPSquantify now print the sum of the concentration for each element
+>> Change: Ycomponent and add it to fitComponent class
+>> Change: lots of small fix to better code
+
+##### RxpsG version 0.4.1
+>> Change: small changes in XPSrecepies. Now they call the new XPSbaselineGUI interface
+>> Add: Flags to manage RSF for Scienta and Kratos instruments.
+>> New: XPSextract function to extract a portion from a core line trough GUI. 
+>> New: XPSbaselineGUI function to add baseline with graphical interface.
+>> Change: XPSbaseline does not plot anymore the results. Use the GUI version instead !!
+>> Change: XPSquantify now has a variable to exclude any core line from quantification even if the baseline and/or fit are present
+>> Fixed : shirley reverse when higher bgnd is at lower BE
+>> Change: options for XPSremove are now lowercase and default option is "all"
+>> Add   : XPSexportASCII to export data
+
+##### RxpsG version 0.4
+>> Fixed: bug in the XPSconstrain (and consequently in XPSfit) that it does not manage more than 1 link.
+>> Add: to the definition of fitComponent the slot rsf. In this way any component has it's rsf.
+>> Change : XPSsetRSF now sets the rsf only for the XPSCoreLine RSF slot and that is used in the case of quantification only trough the baseline definition.
+>> Change: the XPSbaseline calls the XPSsetRSF and XPSaddFitComponent sets the rsf for each component.
+>> Fix: many small "typo" mistakes.
+
+##### RxpsG version 0.3
+>> Add: the baseline slot has an item with the baseline class object in it
+>> Change: now the baseline action is managed trough the 'baseline' package
+>> Add: XPSresidualPlot function, mainly called after success with fit.
+>> Add: readGenplot to manage RPL file for Genplot already processed files
+>> Change: a lot of adjustments on the fit function definitions and start values. now everythings seems OK.
+>> Add: XPSconstrain function does manage constrain
+>> Add: avoid baseline add names to y coordinate
+>> Add: function to manage param values into class fitComponent
+>> Change: added a new class for fitComponent and change all code to include the new class
+>> Change: the fit slot (@Fit) now has a $y item to be compatible with GENPLOT replot old files that have component but the fit is not exported.
+
+##### RxpsG version 0.2
+>> Change: the original data (Kinetic or Binding or Transmission or ... and Counts or Cps) are in the .Data slot but are transformed to Binding and cps for quantitative analysis. 
+>> Change: the definition of XPSCoreLine
+
+
+##### RxpsG version 0.1
+Date: 2012-05-13
+>> ## ADD: funzioni per cancellare Componenti, fit, baseline, regiontofit da linea di core e dal campione.
+	
+>> ## ADD: una funzione per creare una CoreLine dal survey ed includerla nel XPSsample. OK!
+
+>> ## ADD: funzione che calcoli le y per le funzioni di fit e restituisca un dataframe o lista
+	
+>> ## ADD: assegnare una label (sequenza numerica oppure stringa) per le componenti di un fit OK!
+
+##### Version: 0.0
+Date: 2012-05-13
+News: Start Release
+>> Assembly of all functions already have.
+
+
+
+
