@@ -1,0 +1,98 @@
+
+
+
+==============================================================
+RXPSG introduced XPSSample name as title of the graphic window
+      integrated BE/KE switch GUI
+      integrated dialog window when wide_spectra name unknown
+
+=== August 2019 ===
+XPSFilter: moving average filter corrected
+           wavelets filter corrected
+
+XPSSurElementIdentify: bugs fixed
+
+XPSSurveyUtility modified call to XPSSurElementIdentify.
+
+XPSElemTable (piu' survey error)
+
+AugerTransitions.lib 
+
+ProcessCoreLineGui some error fixed
+
+XPSClass just comments removed
+
+XPSConstraintsGUI  the notebook Link page completely restyled: now more easy to set links, 
+ctrls to avoid errors
+
+XPSElementTabGUI  modified routine to get multiple cursor positions
+
+XPSZoomCurGUI   eliminated assignments in MyEnv using <<-   modified GUI with choice of XPSSamples 
+and corelines
+
+XPSSampleInfoGUI save edited Sample information: bug fixed
+
+XPSUtilities: in XPSFindXindex() XPSFindYindex() error was generated when void vectors passed to 
+these routines. Now bug corrected. 
+
+XPSProcess: removed error generated when add fitcomponent pressed without any position set
+
+XPSEShiftGUI.r: fixed bug in the reset energy shift procedure.
+
+XPSOverlayGui.r: now it is possible to readjust the intensity of a given CoreLine when comparing spectra from the same XPSSample
+
+XPSPreferencesGUI.r: added option to set user defined X-photon energy to include Synchroton radiations
+
+XPSMoveCompGUI.r: modified adding selection of the XPSSample
+
+XPSSplit.r: macro revised to allow splitting files composed by an unlimited number of core-lines
+           (macro tested on an XPS-Sample composed by 64 core-lines)
+
+=== January 2020 ===
+
+XPSCompare.r: new function added added to RxpsG. This function allows overlapping different core-lines
+              from different XPS-Samples. For each coreline a panel is generated to compare spectra. 
+
+XPSMoveComponents: now possible to change window dimension.
+
+XPSVmsCorrGui.r: correction for analyzer energy transfer function error fixed
+
+XPSRead.VMS.r: fixed error reading vamas files without Analyzer Energy Transfer Function
+
+=== October 2020 ===
+XPSProcessing, XPSMoveComponents, XPSExtract, XPSVBTop. All these routines need interactive graphics.
+GWidgets2TclTK allow interactive graphics via tkrplot library or using graphic handlers
+getGraphicsEventEnv() fired by clicking the mouse in the active graphic device.  
+In the new version, TCL/TK commands are integrated in the routines rendering the XPSProcessing, 
+XPSMoveComponents, XPSExtract, and XPSVBTop completely compatible with Windows and Linux operative 
+systems. Since the tkrplot library does not supports the Apple quartz graphic device, a version 
+of the routines based on getGraphicsEventEnv() is available for Apple operative systems. 
+
+XPSFitLM modified adding a logical parameter plt to select if potting or not fitting results. By default
+plt=TRUE. plt=FALSE when TK graphic device is used in the XPSProcessing, XPSMoveComponents, XPSExtract,
+and XPSVBTop procedures.
+
+XPSImportGUI modified adding possibility to import standard errors associated to sets of data.
+
+XPSread.scienta, XPSRead.OldScienta, XPSRead.vamas modified to store an additional dummy area where
+to store the standard errors or other kinds of data
+
+XPSImportAscii modified to read and store standard errors affecting data. For each column of data a
+column of error must be present. SaveError option will save errors in an predesignated memory location.
+
+XPSCustomPlot modified to plot generic Ascii-data together with their standard errors. Observe that these
+data can only be imported using XPSImportAscii since XPS provide only nude spectra and not any standard
+error is associated to these data. In addition Log scale option modified to draw real X, Y log10 scales
+
+XPSQuantifyGUI modified adding the possibility to write quantification results to file.
+
+=== December 2020 ===
+
+Corrected bug in RxpsG: in path_names change "/" to "\" only for Windows operating systems
+
+=== May 2021 ===
+
+XPSConstraintsGui() and XPSMoveComp() now may work in combination. Changes of coreline fit-parameters
+done in XPSConstraintsGUI() are visualized in the TKplot graphic window opened in XPSMoveComp().
+XPSConstraintsGUI() and XPSMoveComp() can also work independently each other.
+
